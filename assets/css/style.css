@@ -313,7 +313,7 @@ Hero Section
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/heroImage.png") top right;
+  background: url("../img/heroImage.jpg") top right;
   background-size: cover;
   position: relative;
 }
@@ -407,7 +407,7 @@ section {
 }
 
 .section-bg {
-  background-color: white;
+  background-color: #f4f3f2;
 }
 
 .section-title {
@@ -599,7 +599,7 @@ About Section
 }
 
 .about .image {
-  background: url("../img/about.png") center center no-repeat;
+  background: url("../img/about.jpg") center center no-repeat;
   background-size: cover;
   min-height: 500px;
 }
@@ -651,6 +651,44 @@ My Experience
   margin-bottom: 20px;
   color: #3b434a;
 }
+
+.resume-item-certification {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid #82909c;
+  position: relative;
+}
+
+.resume-item-certification h4 {
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #d6a67b;
+  margin-bottom: 10px;
+}
+
+.resume-item-certification h5 {
+  font-size: 16px;
+  background: #eef0f2;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume-item-certification::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #fff;
+  border: 2px solid #82909c;
+}
+
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
