@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School IoT Infrastructure — Rafaiz Ghazian Lusaid</title>
+  <meta name="description" content="School IoT Infrastructure — smart campus network design using Cisco Packet Tracer. Portfolio of Rafaiz Ghazian Lusaid.">
+  <link href="assets/img/Rafaiz GL (1).png" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .detail-page-wrap { padding-top: 120px; padding-bottom: 100px; }
+    .detail-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 48px; transition: color 0.18s ease; }
+    .detail-back:hover { color: var(--accent); }
+    .detail-header { margin-bottom: 48px; }
+    .detail-header h1 { font-size: clamp(32px,6vw,60px); font-weight: 700; margin-bottom: 12px; }
+    .detail-header p.subtitle { font-size: 18px; color: var(--text-secondary); max-width: 680px; line-height:1.65; }
+    .detail-meta-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    @media(max-width:640px){ .detail-meta-grid { grid-template-columns: repeat(2,1fr); } }
+    .detail-meta-item label { display: block; font-family: var(--font-display); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 6px; }
+    .detail-meta-item span { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+    .detail-gallery { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 36px 0; }
+    @media(max-width:640px){ .detail-gallery { grid-template-columns: 1fr; } }
+    .detail-gallery img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); display: block; }
+    .detail-gallery img.full-width { grid-column: 1/-1; }
+    .detail-body h2 { font-size: 22px; font-weight: 700; margin: 36px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .detail-body p { font-size: 15.5px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px; }
+    .detail-body ul { padding-left: 20px; color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+    .detail-body ul li { margin-bottom: 8px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .tag-pill { font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--bg-cream); padding: 5px 13px; border-radius: 999px; border: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="custom-cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-follower" aria-hidden="true"></div>
+
+  <header id="header" role="banner">
+    <div class="rg-container header-inner">
+      <a href="index.html" class="nav-brand">RGL<em>.</em></a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#portfolio" class="active">Work</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="assets/resume/CV_Rafaiz Ghazian Lusaid.pdf" target="_blank" rel="noopener" class="btn-nav-resume">Resume</a>
+      <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+    <button class="mobile-menu-close" aria-label="Close navigation menu"><i class="bi bi-x" aria-hidden="true"></i></button>
+    <nav aria-label="Mobile navigation">
+      <ul class="mobile-menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#portfolio">Work</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <div class="rg-container detail-page-wrap">
+      <a href="index.html#portfolio" class="detail-back"><i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Portfolio</a>
+      <div class="detail-header">
+        <span class="micro-label" aria-hidden="true">IoT / Networking</span>
+        <h1 style="margin-top:12px;">School IoT Infrastructure</h1>
+        <p class="subtitle">Smart campus network topology design and simulation for school environments, using Cisco Packet Tracer.</p>
+      </div>
+      <div class="detail-meta-grid">
+        <div class="detail-meta-item"><label>Type</label><span>Network Design / IoT</span></div>
+        <div class="detail-meta-item"><label>Tool</label><span>Cisco Packet Tracer</span></div>
+        <div class="detail-meta-item"><label>Domain</label><span>Networking / IoT</span></div>
+        <div class="detail-meta-item"><label>Context</label><span>Academic Project</span></div>
+      </div>
+      <div class="detail-gallery">
+        <img src="assets/img/portfolio/IoT implementation of Network Infrastructure at School/iot-school.png" alt="School IoT network topology diagram" loading="lazy" class="full-width">
+        <img src="assets/img/portfolio/IoT implementation of Network Infrastructure at School/portfolio-details-1-iot.jpg" alt="IoT infrastructure detail 1" loading="lazy">
+        <img src="assets/img/portfolio/IoT implementation of Network Infrastructure at School/portfolio-details-2-iot.jpg" alt="IoT infrastructure detail 2" loading="lazy">
+        <img src="assets/img/portfolio/IoT implementation of Network Infrastructure at School/portfolio-details-3-iot.jpg" alt="IoT infrastructure detail 3" loading="lazy" class="full-width">
+      </div>
+      <div class="detail-body">
+        <h2>About the Project</h2>
+        <p>This project involves designing and simulating a smart campus IoT network infrastructure for a school environment. The topology integrates IoT devices, sensor nodes, and network hardware — simulated and verified in Cisco Packet Tracer.</p>
+        <h2>Tools &amp; Technologies</h2>
+        <div class="tag-row">
+          <span class="tag-pill">Cisco Packet Tracer</span>
+          <span class="tag-pill">Network Design</span>
+          <span class="tag-pill">IoT</span>
+          <span class="tag-pill">Topology</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="rg-container footer-inner">
+      <span class="footer-brand">RGL<em>.</em></span>
+      <span class="footer-copy">&copy; 2026 Rafaiz Ghazian Lusaid. All rights reserved.</span>
+      <a href="index.html" class="footer-back-top">Back to Portfolio <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
