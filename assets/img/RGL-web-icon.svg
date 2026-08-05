@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 19" role="img" aria-labelledby="title desc">
+  <title id="title">RGL logo</title>
+  <desc id="desc">Bold dark RGL lettering followed by a red period.</desc>
+  <g aria-hidden="true">
+    <text x="3" y="16" fill="#111113"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="18" font-weight="700"
+          letter-spacing="-0.65">RGL</text>
+    <circle cx="44" cy="14.5" r="2" fill="#ef3829"/>
+  </g>
+</svg>

@@ -366,28 +366,102 @@
      TIMELINE SCROLL ANIMATION
   ---------------------------------------------------------------- */
   function initTimeline() {
-    const fill = qs('.timeline-fill');
-    const rail  = qs('.timeline-rail');
-    if (!fill || !rail) return;
+  const tabs = Array.from(
+    document.querySelectorAll("[data-journey-tab]")
+  );
 
-    const update = () => {
-      const rect    = rail.getBoundingClientRect();
-      const visible = Math.max(0, Math.min(window.innerHeight, rect.bottom) - Math.max(0, rect.top));
-      const pct     = Math.min(100, (visible / rect.height) * 100);
-      fill.style.height = pct + '%';
+  function updateTimeline() {
+    const activeTimelines = document.querySelectorAll(
+      ".journey-panel.is-active .timeline"
+    );
 
-      // Activate timeline items
-      qsa('.tl-item').forEach((item) => {
-        const dot = item.querySelector('.tl-dot');
+    activeTimelines.forEach((timeline) => {
+      const rail = timeline.querySelector(".timeline-rail");
+      const fill = timeline.querySelector(".timeline-fill");
+
+      if (!rail || !fill) return;
+
+      const railRect = rail.getBoundingClientRect();
+
+      /*
+       * The playhead stays at 65% of the viewport.
+       * This prevents the red line from shrinking or stopping when
+       * the last timeline card enters the viewport.
+       */
+      const playhead = window.innerHeight * 0.65;
+
+      const progress = Math.max(
+        0,
+        Math.min(railRect.height, playhead - railRect.top)
+      );
+
+      fill.style.height = `${progress}px`;
+
+      timeline.querySelectorAll(".tl-item").forEach((item) => {
+        const dot = item.querySelector(".tl-dot");
+
         if (!dot) return;
-        const dotRect = dot.getBoundingClientRect();
-        item.classList.toggle('is-active', dotRect.top < window.innerHeight * 0.65);
-      });
-    };
 
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+        const dotRect = dot.getBoundingClientRect();
+        const dotCenter = dotRect.top + dotRect.height / 2;
+        const isActive = dotCenter <= playhead;
+
+        item.classList.toggle("is-active", isActive);
+      });
+    });
   }
+
+  function selectTab(selectedTab) {
+    tabs.forEach((tab) => {
+      const selected = tab === selectedTab;
+      const panelId = tab.dataset.journeyTab;
+      const panel = document.getElementById(panelId);
+
+      tab.classList.toggle("is-active", selected);
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+
+      if (panel) {
+        panel.hidden = !selected;
+        panel.classList.toggle("is-active", selected);
+      }
+    });
+
+    requestAnimationFrame(updateTimeline);
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      selectTab(tab);
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      if (
+        event.key !== "ArrowRight" &&
+        event.key !== "ArrowLeft"
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const direction = event.key === "ArrowRight" ? 1 : -1;
+      const nextIndex =
+        (index + direction + tabs.length) % tabs.length;
+
+      selectTab(tabs[nextIndex]);
+      tabs[nextIndex].focus();
+    });
+  });
+
+  window.addEventListener("scroll", updateTimeline, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateTimeline);
+
+  updateTimeline();
+}
 
   /* ----------------------------------------------------------------
      COPY EMAIL TO CLIPBOARD
